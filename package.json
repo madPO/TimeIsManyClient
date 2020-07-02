@@ -5,12 +5,14 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "build:hotdev": "webpack-dev-server --mode=development"
+    "dev": "webpack --watch --progress"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "aspnet-webpack": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.3",
+    "postcss-loader": "^3.0.0",
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.5",
     "webpack": "^4.43.0",
