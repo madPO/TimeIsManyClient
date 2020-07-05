@@ -1,4 +1,2 @@
-class User2 {
-    name: string;
-    id: number;
-}
+import './styles/ui.css';
+import './fluent/button.ts';

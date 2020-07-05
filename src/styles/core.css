@@ -17,3 +17,36 @@
 * {
     font-family: 'Inter var';
 }
+body, html{
+    height: 100%;
+}
+.landing{
+    background-color: hsl(0, 100%, 100%);
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;    
+}
+.header, .buttons{
+    justify-content: center;
+    text-align: center;
+}
+.header {
+    align-self: end;
+}
+.buttons{
+    align-self: start;
+}
+.header1{
+    font-size: 42px;
+    line-height: 52px;
+    font-weight: 700;
+    color: hsl(208, 70%, 35%);
+}
+.header2{
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+    color: hsl(208, 70%, 35%);
+}
