@@ -1,5 +1,6 @@
 const path = require('path');
-const CopyPlugin = require('copy-webpack-plugin'); 
+const CopyPlugin = require('copy-webpack-plugin');
+const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 
 module.exports = [{
   entry: {
@@ -14,6 +15,25 @@ module.exports = [{
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
+      }, 
+      {
+        test: /\.css$/i,
+        use: [{
+          loader: ExtractCssChunks.loader,
+          options: {
+            publicPath: '../',
+          },
+        }, 
+          'css-loader',
+          'postcss-loader'],
+      },
+      {
+          test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+          loader: 'url-loader',
+          options: {
+              limit: 8192,
+              name : 'assets/[hash].[ext]'
+          },
       },
     ],
   },
@@ -21,14 +41,10 @@ module.exports = [{
     extensions: [ '.tsx', '.ts', '.js' ],
   },
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'wwwroot/scripts')
+    filename: 'scripts/[name].bundle.js',
+    path: path.resolve(__dirname, 'wwwroot')
   },
-  plugins: [
-    new CopyPlugin({
-      patterns: [
-        { from: path.resolve(__dirname, 'asset'), to: path.resolve(__dirname, 'wwwroot/asset') }
-      ],
-    }),
-  ],
+  plugins: [new ExtractCssChunks({
+      filename: 'css/[name].bundle.css'
+  })]
 }];
