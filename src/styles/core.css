@@ -21,7 +21,7 @@ body, html{
     height: 100%;
 }
 .landing{
-    background-color: hsl(0, 100%, 100%);
+    background-color: rgb(255, 255, 255);
     width: 100%;
     height: 100%;
     display: grid;
@@ -42,11 +42,11 @@ body, html{
     font-size: 42px;
     line-height: 52px;
     font-weight: 700;
-    color: hsl(208, 70%, 35%);
+    color: rgb(0, 69, 120);
 }
 .header2{
     font-size: 32px;
     line-height: 40px;
     font-weight: 600;
-    color: hsl(208, 70%, 35%);
+    color: rgb(0, 90, 158);
 }

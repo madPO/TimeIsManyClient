@@ -1,5 +1,5 @@
 // @ts-ignore
-import {LitElement, html, customElement, property, css} from 'lit-element';
+import {LitElement, html, customElement, property, css, unsafeCSS } from 'lit-element';
 import { ThemeSettings } from './theme';
 
 /**
@@ -19,12 +19,12 @@ export class Button extends LitElement {
             min-width: 80px;
             height: 32px;
             background-color: hsl(0, 100%, 100%);
-            color: ${ThemeSettings.colors.text};
+            color: ${unsafeCSS(ThemeSettings.colors.text.hsl())};
             user-select: none;
             outline: transparent;
             border-width: 1px;
             border-style: solid;
-            border-color: rgb(138, 136, 134);
+            border-color: ${unsafeCSS(ThemeSettings.colors.text.hsl())};
             border-image: initial;
             text-decoration: none;
             border-radius: 2px;
@@ -38,19 +38,19 @@ export class Button extends LitElement {
             color: rgb(32, 31, 30);
         }
         .primary{
-            background-color: ${ThemeSettings.colors.primary};
-            color: white;
-            border-color: ${ThemeSettings.colors.primary};
+            background-color: ${unsafeCSS(ThemeSettings.colors.primary)};
+            color: hsl(0, 100%, 100%);
+            border-color: ${unsafeCSS(ThemeSettings.colors.primary)};
         }
         :host(:hover) .primary {
-            background-color: rgb(16, 110, 190);
-            border-color: rgb(16, 110, 190);
-            color: white;
+            background-color: ${unsafeCSS(ThemeSettings.colors.primary.darken(0.1))};
+            border-color: ${unsafeCSS(ThemeSettings.colors.primary.darken(0.1))};
+            color: rgb(255, 255, 255);
         }
         :host(:active) .primary {
-            background-color: rgb(0, 90, 158);
-            border-color: rgb(0, 90, 158);
-            color: white;
+            background-color: ${unsafeCSS(ThemeSettings.colors.primary.darken(0.2))};
+            border-color: ${unsafeCSS(ThemeSettings.colors.primary.darken(0.2))};
+            color: rgb(255, 255, 255);
         }
     `;
 
